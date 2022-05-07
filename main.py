@@ -171,13 +171,13 @@ async def message_handler(client: Client, message: Message):
             url_list[uid]["proxy"] = "/".join(proxy_parts)
         except:
             url_list[uid]["proxy"] = ""
-        await message.reply("✅ Proxy guardado.")
+        await message.reply("💾 Proxy guardado.")
         return
 
     # Autenticación
     if msg.lower().startswith("/setauth"):
         progress_message = await message.reply(
-            "⏳ Autenticando...")
+            "✌😜 Analizando...")
         auth: list = msg.split(" ")
         print(auth)
         if len(auth) != 4:
@@ -196,11 +196,11 @@ async def message_handler(client: Client, message: Message):
         token = await get_token(url, user, passw, url_list[uid]["proxy"])
         if token:
             url_list[uid][str(url).lower()] = [user, passw, token]
-            await progress_message.edit("✅ Usuario y contraseña guardados.")
+            await progress_message.edit("💾 Usuario y contraseña guardados.")
         else:
             if not token:
                 await progress_message.edit(
-                    "❌ Error al obtener token con las creenciales actuales."
+                    "😕 Error al obtener token con las creenciales actuales."
                 )
         return
 
@@ -208,7 +208,7 @@ async def message_handler(client: Client, message: Message):
     if re.search("https?://[^\s]+[a-zA-z0-9]", msg, re.IGNORECASE):
         urls = re.findall("https?://[^\s]+[a-zA-z0-9]", msg, re.IGNORECASE)
         progress_message = await message.reply(
-            "⏳ Firmando {} links...".format(len(urls)))
+            "📝 Firmando {} links...".format(len(urls)))
 
         base_url = URL(urls[0]).origin()
         auth = url_list[uid].get(str(base_url).lower())
@@ -218,7 +218,7 @@ async def message_handler(client: Client, message: Message):
             token = auth[2]
         else:
             await message.reply(
-                "❌ No se encuentra autenticación para " + str(base_url))
+                "😤 No se encuentra autenticación para " + str(base_url))
             return
         counter = 0
 
@@ -227,7 +227,7 @@ async def message_handler(client: Client, message: Message):
             urls = await send_calendar(str(base_url), user, passw, urls, url_list[uid]["proxy"])
             if not urls:
                 await message.reply(
-                    "❌ Error moviendo a calendario")
+                    "😤 Error moviendo a calendario")
                 return
             await progress_message.edit("⏳ Firmando {} links...".format(len(urls)))
 
@@ -241,7 +241,7 @@ async def message_handler(client: Client, message: Message):
             counter += 1
 
         await progress_message.edit(
-            "✅ Firmados {}/{} links. Puede usar /txt para generar el .txt".format(
+            "🖋 Firmados {}/{} links. Puede usar /txt para generar el .txt📄".format(
                 counter, len(urls)
             )
         )
@@ -251,7 +251,7 @@ async def message_handler(client: Client, message: Message):
     if msg == "/txt":
         if url_list[uid]["urls"] == []:
             await message.reply(
-                "❌ No hay ningún link firmado.")
+                "😤 No hay ningún link firmado.")
         else:
             links = "\n".join(url_list[uid]["urls"])
             fname = str(randint(100000000, 9999999999)) + ".txt"
@@ -269,6 +269,6 @@ async def message_handler(client: Client, message: Message):
 print("Starting...")
 bot.start()
 print("Ready.")
-bot.send_message(admin_user, "Bot reiniciado.")
+bot.send_message(admin_user, "🤖Bot reiniciado configure su cuenta nuevamente.")
 loop: asyncio.AbstractEventLoop = asyncio.get_event_loop_policy().get_event_loop()
 loop.run_forever()
