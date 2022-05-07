@@ -148,7 +148,7 @@ async def message_handler(client: Client, message: Message):
     if not msg:
         msg = ""
     if msg.lower() == "/start":
-        await message.reply("Bienvenido -> {}\nUser -> @{}".format(message.from_user.first_name,uid))
+        await message.reply("🎩Mi desarrollador @xXxWTF_Dev te da la bienvenida {}\n🌟Tu UserName @{}".format(message.from_user.first_name,uid))
         return
 
     # Comprobar que el usuario esté autorizado.
