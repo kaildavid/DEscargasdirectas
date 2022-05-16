@@ -182,8 +182,8 @@ async def message_handler(client: Client, message: Message):
         print(auth)
         if len(auth) != 4:
             await progress_message.edit(
-                "❌ La forma correcta es: /setauth https://moodle.cu/ Usuario Contraseña\n\n"
-                + "❌ El url, el usuario y la contraseña no deben contener espacios."
+                "❌ La forma correcta es: /setauth Nube Usuario Contraseña\n\n"
+                + "❌ El url, el usuario y la contraseña no deben contener comas para separarlos."
             )
             return
         try:
