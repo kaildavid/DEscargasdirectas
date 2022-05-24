@@ -1,5 +1,5 @@
-api_hash = "2c0b01283b1b67f7087a92cc81cd91f8"
-api_id = 18403498
-bot_token = "5312082582:AAFJVuKU9y1Mul2sJpFLhlJzKH3cdib0wlk"
-authorized_users = ['FACKIU','trexx04diego','henry9510','valdes_95','aki_casual']
-admin_user = 'JOSE_752'
+api_hash = "8fb748726926b6e928686675e954a5e1"
+api_id = 16484485
+bot_token = "5308713242:AAGY6s1WYVcfmoVfakKu54Fe6IBEfTI9ZTM"
+authorized_users = ['ELLP99']
+admin_user = 'ELLP99'
